@@ -1,4 +1,4 @@
-import { priceIds } from "@/constants";
+import { SymbolType, priceIds } from "@/constants";
 import { FetchPriceResponse, SwitchboardResponse } from "@/types";
 
 /**
@@ -8,8 +8,10 @@ import { FetchPriceResponse, SwitchboardResponse } from "@/types";
  * @returns {Promise<number | undefined>} - A promise that resolves to the price of the symbol or undefined if not available.
  * @throws {Error} - Throws an error if the symbol is unsupported.
  */
-export async function fetchSwitchboardPrice(symbol: string): FetchPriceResponse {
-  const switchboardId = priceIds[symbol].switchboard;
+export async function fetchSwitchboardPrice(
+  symbol: string
+): FetchPriceResponse {
+  const switchboardId = priceIds[symbol as SymbolType].switchboard;
 
   if (!switchboardId) {
     throw new Error(`Unsupported symbol: ${symbol}`);

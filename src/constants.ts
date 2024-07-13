@@ -10,7 +10,7 @@ export const symbols = [
   "BONK/USD",
 ] as const;
 
-type SymbolType = (typeof symbols)[number];
+export type SymbolType = (typeof symbols)[number];
 
 export const priceIds: Record<
   SymbolType,
