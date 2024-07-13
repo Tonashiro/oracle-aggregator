@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Loader } from "@/components/Loader";
 import Image from "next/image";
-import { PYTH_CONNECTION, priceIds } from "@/constants";
+import { PYTH_CONNECTION, priceIds, symbols } from "@/constants";
 import { PriceData } from "@/types";
 import { fetchSwitchboardPrice } from "@/lib/fetchSwitchboardPrice";
 
@@ -16,7 +16,6 @@ import { fetchSwitchboardPrice } from "@/lib/fetchSwitchboardPrice";
 const PriceDataTable: React.FC = () => {
   const [feedData, setFeedData] = useState<PriceData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const symbols = ["SOL/USD", "BTC/USD", "INF/USD", "JUP/USD", "BONK/USD"];
 
   useEffect(() => {
     async function fetchPrices() {

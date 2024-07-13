@@ -12,6 +12,7 @@
 - [Installation](#installation)
 - [Development](#development)
 - [Build and Run](#build-and-run)
+- [Custom Price Feeds](#custom-price-feeds)
 
 ## Introduction
 
@@ -89,3 +90,29 @@ npm start
 # or
 yarn start
 ```
+
+## Custom Price Feeds
+
+To add or remove any price feed, follow these steps:
+
+1. Navigate to the `constants` file located in `src/constants`.
+
+2. Add the name you want for the new price feed in the `symbols` array, for example `BTC/USD`.
+
+3. Add the new value inside the priceIds object. Follow the structure of the existing entries as a guide. For example:
+
+```
+"BTC/USD": {
+  pyth: "your_pyth_price_feed",
+  switchboard: "your_switchboard_feed_hash",
+  icon: "/path/to/your/icon.svg"
+}
+```
+
+4. To get the Pyth price feeds, visit [Pyth Price Feeds](https://docs.pyth.network/price-feeds/sponsored-feeds).
+
+5. To get the Switchboard feed hash, visit [Switchboard Solana Mainnet](https://ondemand.switchboard.xyz/solana/mainnet), click over the feed you want, and copy the "Feed Hash".
+
+6. Finally, add a new icon in the project or use one from the web. Just paste the URL or path to the icon in the icon field.
+
+That's it! You have now added a new price feed to track using both oracle aggregators.

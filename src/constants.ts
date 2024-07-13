@@ -2,10 +2,20 @@ import { PriceServiceConnection as PythConnection } from "@pythnetwork/price-ser
 
 const PYTH_HERMES_URL = "https://hermes.pyth.network";
 export const PYTH_CONNECTION = new PythConnection(PYTH_HERMES_URL);
+export const symbols = [
+  "SOL/USD",
+  "BTC/USD",
+  "INF/USD",
+  "JUP/USD",
+  "BONK/USD",
+] as const;
 
-export const priceIds: {
-  [key: string]: { pyth: string; switchboard: string; icon: string };
-} = {
+type SymbolType = (typeof symbols)[number];
+
+export const priceIds: Record<
+  SymbolType,
+  { pyth: string; switchboard: string; icon: string }
+> = {
   "SOL/USD": {
     pyth: "ef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d",
     switchboard:
