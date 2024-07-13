@@ -51,7 +51,7 @@ To set up your development environment, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/oracle-aggregator.git
+    git clone https://github.com/Tonashiro/oracle-aggregator.git
     cd oracle-aggregator
     ```
 
